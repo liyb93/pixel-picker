@@ -67,8 +67,20 @@ import CocoaLumberjackSwift
     }
     
     func addRecentPick(_ color: PPPickedColor) {
-        while recentPicks.count >= 5 { let _ = recentPicks.removeFirst() }
+        if let index = recentPicks.firstIndex(where: { return $0.equalTo(color) }) {    // 已存在
+            recentPicks.remove(at: index)
+            recentPicks.append(color)
+            return
+        }
+        while recentPicks.count >= 5 { let _ = recentPicks.removeFirst() }  // 大于5个
         recentPicks.append(color)
+    }
+    
+    func removeRecentPick(_ color: PPPickedColor) {
+        guard let index = recentPicks.firstIndex(where: { return $0.equalTo(color) }) else {
+            return
+        }
+        PPState.shared.recentPicks.remove(at: index)
     }
     
     // Returns the chosen image for the Status Item in the menu bar.
@@ -114,7 +126,7 @@ import CocoaLumberjackSwift
             // Ignore error when there's no file.
             let err = error as NSError
             if err.domain != NSCocoaErrorDomain && err.code != CocoaError.fileReadNoSuchFile.rawValue {
-                DDLogError("Unexpected error loading application state from disk: \(error)")
+                DDLogError("从磁盘加载应用程序状态时发生意外错误: \(error)")
             }
         }
     }
@@ -158,11 +170,11 @@ import CocoaLumberjackSwift
                 case "recentPicks":
                     recentPicks = deserializeRecentPicks(fromJSON: value)
                 default:
-                    DDLogWarn("unknown key '\(key)' encountered in json")
+                    DDLogWarn("在json中遇到未知键 \(key)")
                     continue
                 }
             }
-            DDLogInfo("Loaded config from disk")
+            DDLogInfo("从磁盘加载配置")
         }
     }
     
@@ -203,12 +215,12 @@ import CocoaLumberjackSwift
                 let configDir = savePath.deletingLastPathComponent()
                 try FileManager.default.createDirectory(atPath: configDir.path, withIntermediateDirectories: true, attributes: nil)
                 try jsonString.write(to: savePath, atomically: false, encoding: .utf8)
-                DDLogInfo("Saved config to disk")
+                DDLogInfo("保存配置到磁盘")
             } else {
-                DDLogError("Could not serialise config")
+                DDLogError("无法序列化配置")
             }
         } catch {
-            DDLogError("Unexpected error saving application state to disk: \(error)")
+            DDLogError("将应用程序状态保存到磁盘时出现意外错误: \(error)")
         }
     }
 }

@@ -55,7 +55,7 @@ extension CGImage {
 
         // Creating the context failed, so return a default color instead.
         // Hopefully, this should never happen.
-        DDLogError("Failed to create CGContext!")
+        DDLogError("创建上下文失败！")
         
         return NSColor.black
     }

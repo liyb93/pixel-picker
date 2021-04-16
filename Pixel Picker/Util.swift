@@ -82,9 +82,9 @@ func defaultLogPath() -> URL {
     do {
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
     } catch {
-        DDLogError("Unexpected error creating log directory: \(error)")
+        DDLogError("创建日志目录时发生意外错误: \(error)")
     }
-    DDLogInfo("Default Log Path: \(url.path)")
+    DDLogInfo("默认日志路径: \(url.path)")
     return url
 }
 
@@ -97,6 +97,6 @@ func defaultConfigurationPath() -> URL {
         url = URL(fileURLWithPath: "\(NSHomeDirectory())/Library/Preferences/\(APP_NAME)/configuration.json")
     }
 
-    DDLogInfo("Default Config Path: \(url.path)")
+    DDLogInfo("默认配置路径: \(url.path)")
     return url
 }

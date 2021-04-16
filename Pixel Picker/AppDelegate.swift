@@ -49,11 +49,18 @@ import CocoaLumberjackSwift
         // hardware events are suppressed after functions like CGWarpMouseCursorPosition are used.
         CGEventSource(stateID: CGEventSourceStateID.combinedSessionState)?.localEventsSuppressionInterval = 0.05
 
-        DDLogInfo("Sucessfully launched.")
+        DDLogInfo("启动成功")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         PPState.shared.saveToDisk()
+    }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        let url = urls[0]
+        if url.absoluteString.contains("picker") {
+            overlayController.showPicker()
+        }
     }
 
     func registerActivatingShortcut() {
@@ -82,6 +89,38 @@ import CocoaLumberjackSwift
 
     @objc func showPicker() {
         overlayController.showPicker()
+    }
+    
+    @objc func exportLog() {
+        let panel = NSOpenPanel.init()
+        panel.title = "导出日志到"
+        panel.message = "日志路径"
+        panel.allowsOtherFileTypes = false;
+        panel.isExtensionHidden = false
+        panel.canCreateDirectories = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.level = NSWindow.Level.init(21)
+        panel.begin { (response) in
+            if response == .OK {
+                guard let logger = DDLog.allLoggers.filter({$0 is DDFileLogger})[0] as? DDFileLogger, let files = try? FileManager.default.contentsOfDirectory(atPath: logger.logFileManager.logsDirectory) else {
+                    return
+                }
+                for file in files {
+                    let atPath = logger.logFileManager.logsDirectory.appending("/\(file)")
+                    guard let toPath = panel.url?.path.appending("/\(file)") else {
+                        DDLogError("导出日志是获取选择地址发生意外错误")
+                        return
+                    }
+                    do {
+                        try FileManager.default.copyItem(atPath: atPath, toPath: toPath)
+                        DDLogInfo("导出日志成功")
+                    } catch {
+                        DDLogError("导出日志错误: \(error)")
+                    }
+                }
+            }
+        }
     }
 
     @objc func showAboutPanel() {

@@ -35,6 +35,13 @@ struct PPPickedColor {
             "format": self.format.rawValue
         ]
     }
+    
+    func equalTo(_ pickedColor: PPPickedColor) -> Bool {
+        if pickedColor.asString == asString {
+            return true
+        }
+        return false
+    }
 }
 
 // This enum is responsible for each of the color formats PixelPicker supports,
@@ -250,19 +257,19 @@ enum PPColor: String, CaseIterable {
     // screens, but here they're left out since they're probably not common/necessary. If you're
     // reading this and you want to use them, make an issue on GitHub and then we can test them.
     static let colorSpaceNames = [
-        // ("Generic CMYK",           CGColorSpace.genericCMYK as String),
+         ("Generic CMYK",           CGColorSpace.genericCMYK as String),    //    不一定起作用
         ("Generic XYZ",            CGColorSpace.genericXYZ as String),
         ("Generic RGB Linear",     CGColorSpace.genericRGBLinear as String),
-        // ("Generic Gray Gamma 2.2", CGColorSpace.genericGrayGamma2_2 as String),
+         ("Generic Gray Gamma 2.2", CGColorSpace.genericGrayGamma2_2 as String),    //    不一定起作用
         ("ACESCG Linear",          CGColorSpace.acescgLinear as String),
         ("Adobe RGB 1998",         CGColorSpace.adobeRGB1998 as String),
         ("DCIP3",                  CGColorSpace.dcip3 as String),
         ("Display P3",             CGColorSpace.displayP3 as String),
-        // ("Linear Gray",            CGColorSpace.linearGray as String),
+         ("Linear Gray",            CGColorSpace.linearGray as String), //    不一定起作用
         ("Linear sRGB",            CGColorSpace.linearSRGB as String),
-        // ("Extended Linear Gray",   CGColorSpace.extendedLinearGray as String),
+         ("Extended Linear Gray",   CGColorSpace.extendedLinearGray as String), //    不一定起作用
         ("Extended Linear sRGB",   CGColorSpace.extendedLinearSRGB as String),
-        // ("Extended Gray",          CGColorSpace.extendedGray as String),
+         ("Extended Gray",          CGColorSpace.extendedGray as String), //    不一定起作用
         ("Extended sRGB",          CGColorSpace.extendedSRGB as String),
         ("ITUR 2020",              CGColorSpace.itur_2020 as String),
         ("ITUR 709",               CGColorSpace.itur_709 as String),

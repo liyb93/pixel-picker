@@ -14,9 +14,9 @@ import LaunchAtLogin
 enum GridSetting {
     case never, always, inFocusMode
     static let withNames: [(String, GridSetting)] = [
-        ("Only in Focus Mode", .inFocusMode),
-        ("Always", .always),
-        ("Never", .never)
+        ("仅对焦模式", .inFocusMode),
+        ("总是", .always),
+        ("永不", .never)
     ]
 }
 
@@ -31,11 +31,11 @@ let focusModifiers: [(String, NSEvent.ModifierFlags)] = [
 
 // The available status item images that the user may pick from.
 let statusItemImages: [(String, String)] =  [
-    ("Magnifying Glass (Default)", "icon-default"),
-    ("Palette", "icon-palette"),
-    ("Dropper", "icon-dropper"),
-    ("Magnifying Glass Dropper", "icon-mag-dropper"),
-    ("Magnifying Glass Dropper Flat", "icon-mag-dropper-flat")
+    ("彩虹马", "icon-default"),
+    ("调色板", "icon-palette"),
+    ("吸管", "icon-dropper"),
+    ("放大镜吸管", "icon-mag-dropper"),
+    ("放大镜吸管2", "icon-mag-dropper-flat")
 ]
 
 extension AppDelegate: NSMenuDelegate {
@@ -60,6 +60,7 @@ extension AppDelegate: NSMenuDelegate {
             CFRunLoopObserverInvalidate(runLoopObserver)
             runLoopObserver = nil
         }
+        PPState.shared.saveToDisk()
     }
 
     // Updates the titles of the recently picked colors - if the `option` key is pressed, then
@@ -83,7 +84,7 @@ extension AppDelegate: NSMenuDelegate {
     func rebuildContextMenu() {
         contextMenu.removeAllItems()
 
-        let pickItem = contextMenu.addItem(withTitle: "Pick a pixel!", action: #selector(showPicker), keyEquivalent: "")
+        let pickItem = contextMenu.addItem(withTitle: APP_NAME, action: #selector(showPicker), keyEquivalent: "")
         pickItem.image = PPState.shared.statusItemImage(withName: PPState.shared.statusItemImageName)
 
         buildRecentPicks()
@@ -102,8 +103,9 @@ extension AppDelegate: NSMenuDelegate {
         buildShowWCAGItem()
 
         contextMenu.addItem(.separator())
-        contextMenu.addItem(withTitle: "About", action: #selector(showAboutPanel), keyEquivalent: "")
-        contextMenu.addItem(withTitle: "Quit \(APP_NAME)", action: #selector(quitApplication), keyEquivalent: "")
+        contextMenu.addItem(withTitle: "导出日志", action: #selector(exportLog), keyEquivalent: "")
+        contextMenu.addItem(withTitle: "关于", action: #selector(showAboutPanel), keyEquivalent: "")
+        contextMenu.addItem(withTitle: "退出 \(APP_NAME)", action: #selector(quitApplication), keyEquivalent: "")
     }
 
     // Choose the status item icon.
@@ -116,7 +118,7 @@ extension AppDelegate: NSMenuDelegate {
             item.image = PPState.shared.statusItemImage(withName: imageName)
         }
 
-        let item = contextMenu.addItem(withTitle: "App Icon", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "App图标", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -136,7 +138,7 @@ extension AppDelegate: NSMenuDelegate {
             item.state = PPState.shared.gridSetting == setting ? .on : .off
         }
 
-        let item = contextMenu.addItem(withTitle: "Show Grid", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "显示网格", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -150,7 +152,7 @@ extension AppDelegate: NSMenuDelegate {
     private func buildColorSpaceItem() {
         let submenu = NSMenu()
 
-        let defaultItem = submenu.addItem(withTitle: "Default (infer from screen)", action: #selector(setColorSpace(_:)), keyEquivalent: "")
+        let defaultItem = submenu.addItem(withTitle: "默认值(从屏幕上推断)", action: #selector(setColorSpace(_:)), keyEquivalent: "")
         defaultItem.state = PPState.shared.colorSpace == nil ? .on : .off
         submenu.addItem(.separator())
         for (title, name) in PPColor.colorSpaceNames {
@@ -159,7 +161,7 @@ extension AppDelegate: NSMenuDelegate {
             item.state = PPState.shared.colorSpace == name ? .on : .off
         }
 
-        let item = contextMenu.addItem(withTitle: "Color Space", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "色彩空间", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -180,7 +182,7 @@ extension AppDelegate: NSMenuDelegate {
             item.representedObject = i
             item.state = PPState.shared.magnificationLevel == i ? .on : .off
         }
-        let item = contextMenu.addItem(withTitle: "Magnification", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "放大倍率", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -192,7 +194,7 @@ extension AppDelegate: NSMenuDelegate {
 
     // Format hex colors to uppercase.
     private func buildUseUppercaseItem() {
-        let item = contextMenu.addItem(withTitle: "Uppercase Hex Digits", action: #selector(setUseUppercase(_:)), keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "大写16进制颜色", action: #selector(setUseUppercase(_:)), keyEquivalent: "")
         item.state = PPState.shared.useUppercase ? .on : .off
     }
 
@@ -202,12 +204,12 @@ extension AppDelegate: NSMenuDelegate {
 
     // Simple launch app at login menu item.
     private func buildLaunchAtLoginItem() {
-        let item = contextMenu.addItem(withTitle: "Launch \(APP_NAME) at Login", action: #selector(launchAtLogin(_:)), keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "登录时启动\(APP_NAME)", action: #selector(launchAtLogin(_:)), keyEquivalent: "")
         item.state = LaunchAtLogin.isEnabled ? .on : .off
     }
     
     private func buildShowWCAGItem() {
-        let item = contextMenu.addItem(withTitle: "Show WCAG contrast level", action: #selector(setShowWCAG(_:)), keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "显示WCAG对比度级别", action: #selector(setShowWCAG(_:)), keyEquivalent: "")
         item.state = PPState.shared.showWCAGLevel ? .on : .off
     }
     
@@ -223,12 +225,13 @@ extension AppDelegate: NSMenuDelegate {
     private func buildRecentPicks() {
         if PPState.shared.recentPicks.count > 0 {
             contextMenu.addItem(.separator())
-            contextMenu.addItem(withTitle: "Recently Picked", action: nil, keyEquivalent: "")
-            let format = PPState.shared.chosenFormat
+            contextMenu.addItem(withTitle: "历史", action: nil, keyEquivalent: "")
             for pickedColor in PPState.shared.recentPicks.reversed() {
-                let item = contextMenu.addItem(withTitle: format.asString(withColor: pickedColor.color), action: #selector(copyRecentPick(_:)), keyEquivalent: "")
-                item.representedObject = pickedColor
-                item.image = circleImage(withSize: 12, color: pickedColor.color)
+                let item = NSMenuItem.init()
+                let view = PPRecentView.init(frame: .init(x: 0, y: 0, width: 100, height: 20), color: pickedColor)
+                view.delegate = self
+                item.view = view
+                contextMenu.addItem(item)
             }
         }
     }
@@ -236,8 +239,8 @@ extension AppDelegate: NSMenuDelegate {
     // Copies the recently picked color (associated with the menu item) to the clipboard.
     // If the `option` key is pressed, then it copies the color in the same format it was
     // when it was picked (otherwise, it copies it in the currently chosen format).
-    @objc private func copyRecentPick(_ sender: NSMenuItem) {
-        if let pickedColor = sender.representedObject as? PPPickedColor {
+    private func copyRecentPick(_ sender: PPRecentView) {
+        if let pickedColor = sender.pickedColor {
             let value = NSEvent.modifierFlags.contains(.option)
                 ? pickedColor.asString
                 : PPState.shared.chosenFormat.asString(withColor: pickedColor.color)
@@ -245,19 +248,9 @@ extension AppDelegate: NSMenuDelegate {
         }
     }
 
-    // Simply creates a circle NSImage with the given size and color.
-    private func circleImage(withSize size: CGFloat, color: NSColor) -> NSImage {
-        let image = NSImage(size: NSSize(width: size, height: size))
-        image.lockFocus()
-        color.set()
-        NSBezierPath(roundedRect: NSMakeRect(0, 0, size, size), xRadius: size, yRadius: size).fill()
-        image.unlockFocus()
-        return image
-    }
-
     // A slider to change the float precision.
     private func buildFloatPrecisionSlider() {
-        contextMenu.addItem(withTitle: "Float Precision (\(PPState.shared.floatPrecision))", action: nil, keyEquivalent: "")
+        contextMenu.addItem(withTitle: "浮点精度 (\(PPState.shared.floatPrecision))", action: nil, keyEquivalent: "")
 
         let value = Double(PPState.shared.floatPrecision)
         let maxValue = Double(PPState.maxFloatPrecision)
@@ -299,7 +292,7 @@ extension AppDelegate: NSMenuDelegate {
             if PPState.shared.chosenFormat == format { formatItem.state = .on }
         }
 
-        let item = contextMenu.addItem(withTitle: "Color Format", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "色彩格式", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -319,7 +312,7 @@ extension AppDelegate: NSMenuDelegate {
             if PPState.shared.focusModeModifier == modifier { modifierItem.state = .on }
         }
 
-        let item = contextMenu.addItem(withTitle: "Focus Mode Modifier", action: nil, keyEquivalent: "")
+        let item = contextMenu.addItem(withTitle: "焦点模式修改器", action: nil, keyEquivalent: "")
         item.submenu = submenu
     }
 
@@ -333,7 +326,7 @@ extension AppDelegate: NSMenuDelegate {
     // Builds and adds the MASShortcutView to be used in the menu.
     // Uses a custom view to handle events correctly (since it's inside a NSMenu).
     private func buildShortcutMenuItem() {
-        contextMenu.addItem(withTitle: "Picker Shortcut", action: nil, keyEquivalent: "")
+        contextMenu.addItem(withTitle: "快捷键", action: nil, keyEquivalent: "")
 
         let shortcutView = MASShortcutView()
         shortcutView.style = .flat
@@ -342,5 +335,23 @@ extension AppDelegate: NSMenuDelegate {
 
         let item = contextMenu.addItem(withTitle: "Shortcut", action: nil, keyEquivalent: "")
         item.view = PPMenuShortcutView(shortcut: shortcutView)
+    }
+}
+
+extension AppDelegate: PPRecentViewDelegate {
+    func recentView(didSelectItemAt view: PPRecentView) {
+        let format = PPState.shared.chosenFormat
+        let color = format.asString(withColor: view.pickedColor.color)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(color, forType: .string)
+        contextMenu.cancelTracking()
+    }
+    
+    func recentView(didDeleteItemAt view: PPRecentView) {
+        guard let index = PPState.shared.recentPicks.firstIndex(where: { return $0.equalTo(view.pickedColor) }) else {
+            return
+        }
+        PPState.shared.recentPicks.remove(at: index)
+        contextMenu.cancelTracking()
     }
 }

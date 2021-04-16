@@ -11,9 +11,6 @@
 		15492103207B53AE00E45BBC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15492102207B53AE00E45BBC /* Util.swift */; };
 		15493F6720BE6E0F007B2BA5 /* CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15493F6620BE6E0F007B2BA5 /* CGImage.swift */; };
 		155D2C03204F61220087478B /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 155D2C02204F61220087478B /* Credits.rtfd */; };
-		159F304E2079A111000BD387 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F304D2079A111000BD387 /* AppDelegateTests.swift */; };
-		159F30522079A147000BD387 /* PPStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F30512079A147000BD387 /* PPStateTests.swift */; };
-		15A8D9722083624600D55A9B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A8D9712083624600D55A9B /* Helpers.swift */; };
 		15FC8CC8204E2E2C000B5E1E /* PPState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC8CC7204E2E2C000B5E1E /* PPState.swift */; };
 		3ABC22F6259AE926005D9E87 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC22F5259AE926005D9E87 /* CocoaLumberjackSwift.framework */; };
 		3ABC22F7259AE926005D9E87 /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC22F5259AE926005D9E87 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -41,17 +38,8 @@
 		BAA17B7D20B14CEB00625455 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAA17B7B20B14CEB00625455 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BAB6F14F221ABB3500EA11D4 /* ShowAndHideCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6F14E221ABB3500EA11D4 /* ShowAndHideCursor.swift */; };
 		D62EACF22465996700686344 /* WCAG.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62EACF12465996700686344 /* WCAG.swift */; };
+		EA89DF5D26298BE800BA3EEA /* PPRecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89DF5C26298BE800BA3EEA /* PPRecentView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		15B4E875207994AF0024FDE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B3B4C2B51E25894B009F8E4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3B4C2BC1E25894B009F8E4E;
-			remoteInfo = PixelPicker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		BA2222FC20AF0C780001069C /* Embed Frameworks */ = {
@@ -76,17 +64,12 @@
 		15492102207B53AE00E45BBC /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		15493F6620BE6E0F007B2BA5 /* CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImage.swift; sourceTree = "<group>"; };
 		155D2C02204F61220087478B /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = Credits.rtfd; sourceTree = "<group>"; };
-		159F304D2079A111000BD387 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
-		159F30512079A147000BD387 /* PPStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPStateTests.swift; sourceTree = "<group>"; };
-		15A8D9712083624600D55A9B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		15B4E870207994AF0024FDE4 /* Pixel PickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel PickerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		15B4E874207994AF0024FDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15FC8CC7204E2E2C000B5E1E /* PPState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPState.swift; sourceTree = "<group>"; };
 		15FF0CCC204A231800E04103 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Pixel Picker/Bridging-Header.h"; sourceTree = "<group>"; };
 		3ABC22EF259AE627005D9E87 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/Mac/CocoaLumberjack.framework; sourceTree = "<group>"; };
 		3ABC22F3259AE904005D9E87 /* CocoaLumberjackSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CocoaLumberjackSwift.framework.dSYM; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework.dSYM; sourceTree = "<group>"; };
 		3ABC22F5259AE926005D9E87 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
-		B3B4C2BD1E25894B009F8E4E /* Pixel Picker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Picker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3B4C2BD1E25894B009F8E4E /* 彩虹马.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "彩虹马.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B4C2C01E25894B009F8E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3B4C2C21E25894B009F8E4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3B4C2C71E25894B009F8E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,16 +92,11 @@
 		BAA17B7B20B14CEB00625455 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		BAB6F14E221ABB3500EA11D4 /* ShowAndHideCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAndHideCursor.swift; sourceTree = "<group>"; };
 		D62EACF12465996700686344 /* WCAG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCAG.swift; sourceTree = "<group>"; };
+		EA89DF54262980A300BA3EEA /* 彩虹马.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "彩虹马.entitlements"; sourceTree = "<group>"; };
+		EA89DF5C26298BE800BA3EEA /* PPRecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPRecentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		15B4E86D207994AF0024FDE4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B3B4C2BA1E25894B009F8E4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,17 +125,6 @@
 			path = OverlayPanel;
 			sourceTree = "<group>";
 		};
-		15B4E871207994AF0024FDE4 /* Pixel PickerTests */ = {
-			isa = PBXGroup;
-			children = (
-				159F304D2079A111000BD387 /* AppDelegateTests.swift */,
-				159F30512079A147000BD387 /* PPStateTests.swift */,
-				15A8D9712083624600D55A9B /* Helpers.swift */,
-				15B4E874207994AF0024FDE4 /* Info.plist */,
-			);
-			path = "Pixel PickerTests";
-			sourceTree = "<group>";
-		};
 		B3B4C2B41E25894B009F8E4E = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +133,6 @@
 				BAA17B7220B14CC100625455 /* MASShortcut.framework */,
 				15FF0CCC204A231800E04103 /* Bridging-Header.h */,
 				B3B4C2BF1E25894B009F8E4E /* Pixel Picker */,
-				15B4E871207994AF0024FDE4 /* Pixel PickerTests */,
 				B3B4C2BE1E25894B009F8E4E /* Products */,
 				BA22232520AFEC1B0001069C /* Frameworks */,
 			);
@@ -175,8 +141,7 @@
 		B3B4C2BE1E25894B009F8E4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3B4C2BD1E25894B009F8E4E /* Pixel Picker.app */,
-				15B4E870207994AF0024FDE4 /* Pixel PickerTests.xctest */,
+				B3B4C2BD1E25894B009F8E4E /* 彩虹马.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +149,7 @@
 		B3B4C2BF1E25894B009F8E4E /* Pixel Picker */ = {
 			isa = PBXGroup;
 			children = (
+				EA89DF54262980A300BA3EEA /* 彩虹马.entitlements */,
 				15493F6620BE6E0F007B2BA5 /* CGImage.swift */,
 				BA74C13420A6F1BE00306B27 /* ShowAndHideCursor.h */,
 				BA74C13220A6F16C00306B27 /* ShowAndHideCursor.m */,
@@ -192,6 +158,7 @@
 				BA71817120AE2DB400619700 /* PPMenuShortcutView.m */,
 				B3B4C2C01E25894B009F8E4E /* AppDelegate.swift */,
 				BA22232820B04D660001069C /* AppDelegate+Menu.swift */,
+				EA89DF5C26298BE800BA3EEA /* PPRecentView.swift */,
 				BA74C14D20ADA33E00306B27 /* PPColor.swift */,
 				15FC8CC7204E2E2C000B5E1E /* PPState.swift */,
 				159ED10B207EB2EF005489ED /* OverlayPanel */,
@@ -221,24 +188,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15B4E86F207994AF0024FDE4 /* Pixel PickerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15B4E877207994AF0024FDE4 /* Build configuration list for PBXNativeTarget "Pixel PickerTests" */;
-			buildPhases = (
-				15B4E86C207994AF0024FDE4 /* Sources */,
-				15B4E86D207994AF0024FDE4 /* Frameworks */,
-				15B4E86E207994AF0024FDE4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				15B4E876207994AF0024FDE4 /* PBXTargetDependency */,
-			);
-			name = "Pixel PickerTests";
-			productName = PixelPickerTests;
-			productReference = 15B4E870207994AF0024FDE4 /* Pixel PickerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		B3B4C2BC1E25894B009F8E4E /* Pixel Picker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3B4C2CA1E25894B009F8E4E /* Build configuration list for PBXNativeTarget "Pixel Picker" */;
@@ -255,7 +204,7 @@
 			);
 			name = "Pixel Picker";
 			productName = PixelPicker;
-			productReference = B3B4C2BD1E25894B009F8E4E /* Pixel Picker.app */;
+			productReference = B3B4C2BD1E25894B009F8E4E /* 彩虹马.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -265,15 +214,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
-					15B4E86F207994AF0024FDE4 = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
-						TestTargetID = B3B4C2BC1E25894B009F8E4E;
-					};
 					B3B4C2BC1E25894B009F8E4E = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 1000;
@@ -296,19 +239,11 @@
 			projectRoot = "";
 			targets = (
 				B3B4C2BC1E25894B009F8E4E /* Pixel Picker */,
-				15B4E86F207994AF0024FDE4 /* Pixel PickerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		15B4E86E207994AF0024FDE4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B3B4C2BB1E25894B009F8E4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,16 +274,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		15B4E86C207994AF0024FDE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				159F304E2079A111000BD387 /* AppDelegateTests.swift in Sources */,
-				159F30522079A147000BD387 /* PPStateTests.swift in Sources */,
-				15A8D9722083624600D55A9B /* Helpers.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B3B4C2B91E25894B009F8E4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +287,7 @@
 				15FC8CC8204E2E2C000B5E1E /* PPState.swift in Sources */,
 				D62EACF22465996700686344 /* WCAG.swift in Sources */,
 				BA74C13120A6E95900306B27 /* PPOverlayPanel.swift in Sources */,
+				EA89DF5D26298BE800BA3EEA /* PPRecentView.swift in Sources */,
 				BA74C14020AA390400306B27 /* PPOverlayPreview.swift in Sources */,
 				BA74C14420AA609500306B27 /* PPOverlayWrapper.swift in Sources */,
 				BAB6F14F221ABB3500EA11D4 /* ShowAndHideCursor.swift in Sources */,
@@ -374,77 +300,12 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		15B4E876207994AF0024FDE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B3B4C2BC1E25894B009F8E4E /* Pixel Picker */;
-			targetProxy = 15B4E875207994AF0024FDE4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		15B4E878207994AF0024FDE4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Pixel PickerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.acheronfail.PixelPickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Pixel Picker/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pixel Picker.app/Contents/MacOS/Pixel Picker";
-			};
-			name = Debug;
-		};
-		15B4E879207994AF0024FDE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Pixel PickerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.acheronfail.PixelPickerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Pixel Picker/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pixel Picker.app/Contents/MacOS/Pixel Picker";
-			};
-			name = Release;
-		};
 		B3B4C2C81E25894B009F8E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -465,6 +326,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -507,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -527,6 +390,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -562,7 +426,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "Pixel Picker/彩虹马.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 20;
@@ -578,7 +443,7 @@
 				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.acheronfail.pixel-picker";
 				PRODUCT_MODULE_NAME = PixelPicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "彩虹马";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pixel Picker/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -590,7 +455,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "Pixel Picker/彩虹马.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 20;
@@ -606,7 +472,7 @@
 				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.acheronfail.pixel-picker";
 				PRODUCT_MODULE_NAME = PixelPicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "彩虹马";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pixel Picker/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -616,15 +482,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15B4E877207994AF0024FDE4 /* Build configuration list for PBXNativeTarget "Pixel PickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15B4E878207994AF0024FDE4 /* Debug */,
-				15B4E879207994AF0024FDE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B3B4C2B81E25894B009F8E4E /* Build configuration list for PBXProject "Pixel Picker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
