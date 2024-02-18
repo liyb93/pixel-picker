@@ -157,7 +157,7 @@ import CocoaLumberjackSwift
                 case "colorSpace":
                     // Check for the presence of the color space in our list. If it's found, then we
                     // can use it (safeguard against bogus input).
-                    if let _ = PPColor.colorSpaceNames.index(where: { $0.1 == value.string }) {
+                    if let _ = PPColor.colorSpaceNames.firstIndex(where: { $0.1 == value.string }) {
                         colorSpace = value.string
                     }
                 case "chosenFormat":
